@@ -20,21 +20,21 @@ export const Premise: React.FC = () => {
   return (
     <Section id="premise" bg="surface" aria-labelledby="premise-heading">
       <Container>
-        <div className="grid grid-cols-12 gap-6 items-start relative">
-          {/* Left Column Steps (cols 1-5) */}
-          <div className="col-span-12 lg:col-span-5 flex flex-col">
-            {/* Header Sticky / Fixed at top of section */}
-            <div className="mb-16">
-              <Kicker>What you see, and what&apos;s underneath</Kicker>
-              <MaskedLines
-                lines={h2Lines}
-                as="h2"
-                id="premise-heading"
-                className="text-h2 text-[var(--text)] mt-4"
-              />
-            </div>
+        {/* Section Header */}
+        <div className="mb-12 max-w-[720px]">
+          <Kicker>What you see, and what&apos;s underneath</Kicker>
+          <MaskedLines
+            lines={h2Lines}
+            as="h2"
+            id="premise-heading"
+            className="text-h2 text-[var(--text)] mt-4"
+          />
+        </div>
 
-            {/* 4 Scrolling Steps */}
+        {/* 2-Column Grid / Stack for Steps & Sticky Stage */}
+        <div className="grid grid-cols-12 gap-6 lg:gap-8 items-start relative">
+          {/* Left Column Steps */}
+          <div className="col-span-12 lg:col-span-5 flex flex-col order-2 lg:order-1">
             <div className="flex flex-col">
               {premiseSteps.map((step, idx) => {
                 const isActive = activeStep === idx;
@@ -46,14 +46,14 @@ export const Premise: React.FC = () => {
                       stepRefs.current[idx] = el;
                     }}
                     className={`
-                      min-h-[70svh] flex flex-col justify-center py-12 transition-opacity duration-300
-                      ${isActive ? 'opacity-100' : 'opacity-45'}
+                      min-h-[75vh] max-sm:min-h-[55vh] flex flex-col justify-center py-10 transition-opacity duration-300
+                      ${isActive ? 'opacity-100' : 'opacity-40'}
                     `}
                   >
                     <span className="font-mono-plex text-[12px] text-[var(--muted)] mb-2">
                       0{step.id}
                     </span>
-                    <h3 className="font-bricolage font-medium text-[clamp(28px,3.4vw,48px)] text-[var(--text)] leading-[1.05] tracking-[-0.03em] mb-4">
+                    <h3 className="font-bricolage font-medium text-[clamp(26px,3vw,44px)] text-[var(--text)] leading-[1.08] tracking-[-0.03em] mb-4">
                       {step.title}
                     </h3>
                     <p className="font-hanken font-normal text-body text-[var(--muted)] max-w-[28em]">
@@ -65,8 +65,8 @@ export const Premise: React.FC = () => {
             </div>
           </div>
 
-          {/* Right Column Sticky Candle Stage (cols 7-12) */}
-          <div className="col-span-12 lg:col-span-6 lg:col-start-7 sticky top-[96px] max-sm:top-[68px]">
+          {/* Right Column Sticky Candle Stage */}
+          <div className="col-span-12 lg:col-span-6 lg:col-start-7 sticky top-[96px] max-sm:top-[70px] z-20 order-1 lg:order-2 max-lg:mb-6">
             <CandleStage activeStep={activeStep} />
           </div>
         </div>
@@ -74,3 +74,4 @@ export const Premise: React.FC = () => {
     </Section>
   );
 };
+

@@ -47,7 +47,7 @@ html, body {
   background-color: var(--bg);
   color: var(--text);
   font-family: 'Hanken Grotesk', system-ui, sans-serif;
-  overflow-x: hidden;
+  overflow-x: clip;
   max-width: 100vw;
 }
 
