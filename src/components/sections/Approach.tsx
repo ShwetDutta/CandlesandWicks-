@@ -14,31 +14,31 @@ interface ApproachItem {
 }
 
 export const Approach: React.FC = () => {
-  const h2Lines = ['Four ideas we keep returning to.'];
+  const h2Lines = ['Four principles that guide our approach.'];
 
   const items: ApproachItem[] = [
     {
       id: '01',
-      title: 'Context before pattern',
-      body: 'Patterns describe price. Context explains it. We start with what was happening in the world, then look at what the chart did.',
+      title: 'Understand the reason behind the move',
+      body: 'A price chart shows you what happened. We also want to understand why it happened. We look at the news, events and other factors that may have influenced the market.',
       colOffset: 'lg:col-start-1',
     },
     {
       id: '02',
-      title: 'Systems over impulse',
-      body: 'Decisions made in the moment are hard to repeat and harder to learn from. We prefer rules that can be written down, questioned and improved.',
+      title: 'Follow a plan, not your emotions',
+      body: 'Making decisions in the heat of the moment can lead to mistakes. We believe in using clear rules and a consistent process that can be reviewed and improved over time.',
       colOffset: 'lg:col-start-3',
     },
     {
       id: '03',
-      title: 'Process over prediction',
-      body: 'Nobody knows what happens next. We focus on understanding, preparation and discipline, not on being right about the future.',
+      title: 'Focus on the process, not predictions',
+      body: 'No one can predict every market move. Instead of trying to guess what happens next, we focus on research, preparation and making better-informed decisions.',
       colOffset: 'lg:col-start-2',
     },
     {
       id: '04',
-      title: 'Technology as a tool',
-      body: 'Alongside education and research, we build algorithmic trading technology. This page isn\'t about that. It is about how we think.',
+      title: 'Use technology to make decisions more systematic',
+      body: 'We combine market research and education with algorithmic trading technology built around defined rules. Our goal is to bring more structure and discipline to the decision-making process.',
       colOffset: 'lg:col-start-4',
     },
   ];
