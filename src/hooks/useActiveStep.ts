@@ -7,32 +7,41 @@ export function useActiveStep(stepRefs: React.RefObject<(HTMLElement | null)[]>)
   const [activeStep, setActiveStep] = useState<number>(0);
 
   useEffect(() => {
-    const elements = stepRefs.current;
-    if (!elements || elements.length === 0) return;
+    const handleScroll = () => {
+      const elements = stepRefs.current;
+      if (!elements || elements.length === 0) return;
 
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            const index = elements.findIndex((el) => el === entry.target);
-            if (index !== -1) {
-              setActiveStep(index);
-            }
-          }
-        });
-      },
-      {
-        rootMargin: '-45% 0px -45% 0px',
-        threshold: 0,
-      }
-    );
+      const targetFocusY = window.innerHeight * 0.45; // 45% down the viewport
 
-    elements.forEach((el) => {
-      if (el) observer.observe(el);
-    });
+      let closestIndex = 0;
+      let minDistance = Infinity;
 
-    return () => observer.disconnect();
+      elements.forEach((el, index) => {
+        if (!el) return;
+        const rect = el.getBoundingClientRect();
+        // Element center relative to viewport top
+        const elementCenter = rect.top + rect.height / 2;
+        const distance = Math.abs(elementCenter - targetFocusY);
+
+        if (distance < minDistance) {
+          minDistance = distance;
+          closestIndex = index;
+        }
+      });
+
+      setActiveStep(closestIndex);
+    };
+
+    handleScroll();
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    window.addEventListener('resize', handleScroll, { passive: true });
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+      window.removeEventListener('resize', handleScroll);
+    };
   }, [stepRefs]);
 
   return activeStep;
 }
+
