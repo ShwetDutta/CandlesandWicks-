@@ -42,11 +42,13 @@
   color: var(--on-mint);
 }
 
-html {
+html, body {
   scroll-behavior: smooth;
   background-color: var(--bg);
   color: var(--text);
   font-family: 'Hanken Grotesk', system-ui, sans-serif;
+  overflow-x: hidden;
+  max-width: 100vw;
 }
 
 /* Scroll targets offset */

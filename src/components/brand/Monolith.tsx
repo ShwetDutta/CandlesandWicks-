@@ -54,7 +54,7 @@ export const Monolith: React.FC = () => {
         >
           {/* Dashed Crosshair Line & Tag - aligned to top edge of body */}
           <div
-            className="absolute top-0 left-1/2 flex items-center z-20"
+            className="absolute top-0 left-1/2 flex items-center z-20 max-w-[calc(100vw-32px)] overflow-hidden"
             style={{
               width: 'calc(50vw + 200px)',
             }}
