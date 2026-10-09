@@ -30,7 +30,7 @@ export const siteConfig: SiteConfig = {
   legalReviewTag: '[LEGAL REVIEW]',
 
   video: {
-    src: '/landing page video.mp4', // Attached founder introduction video in public/
+    src: '/video.mp4', // Web-optimized video in public/
     embedUrl: '', // Optional embed iframe URL
     poster: '', // Optional poster image URL
     orientation: 'landscape',
