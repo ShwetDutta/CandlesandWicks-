@@ -1,0 +1,213 @@
+@import "tailwindcss";
+
+@theme {
+  --color-bg: #0A0D11;
+  --color-surface: #0F1318;
+  --color-surface-2: #151B22;
+  --color-footer: #07090C;
+  --color-line: rgba(201, 206, 214, 0.12);
+  --color-line-strong: rgba(201, 206, 214, 0.28);
+  --color-text: #E8ECF1;
+  --color-muted: #8D97A3;
+  --color-steel: #C9CED6;
+  --color-mint: #2CF5A8;
+  --color-mint-deep: #0B3B2E;
+  --color-on-mint: #04130D;
+
+  --font-display: 'Bricolage Grotesk', system-ui, sans-serif;
+  --font-body: 'Hanken Grotesk', system-ui, sans-serif;
+  --font-mono: 'IBM Plex Mono', ui-monospace, monospace;
+}
+
+:root {
+  --bg: #0A0D11;
+  --surface: #0F1318;
+  --surface-2: #151B22;
+  --footer: #07090C;
+  --line: rgba(201, 206, 214, 0.12);
+  --line-strong: rgba(201, 206, 214, 0.28);
+  --text: #E8ECF1;
+  --muted: #8D97A3;
+  --steel: #C9CED6;
+  --mint: #2CF5A8;
+  --mint-deep: #0B3B2E;
+  --on-mint: #04130D;
+
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-inout: cubic-bezier(0.65, 0, 0.35, 1);
+}
+
+::selection {
+  background: var(--mint);
+  color: var(--on-mint);
+}
+
+html {
+  scroll-behavior: smooth;
+  background-color: var(--bg);
+  color: var(--text);
+  font-family: 'Hanken Grotesk', system-ui, sans-serif;
+}
+
+/* Scroll targets offset */
+[id] {
+  scroll-margin-top: 88px;
+}
+
+/* Typography Utility Classes */
+.font-bricolage {
+  font-family: 'Bricolage Grotesk', system-ui, sans-serif;
+  font-variation-settings: "opsz" 96;
+}
+
+.font-hanken {
+  font-family: 'Hanken Grotesk', system-ui, sans-serif;
+}
+
+.font-mono-plex {
+  font-family: 'IBM Plex Mono', ui-monospace, monospace;
+  font-weight: 400;
+  letter-spacing: 0.02em;
+}
+
+.text-h1 {
+  font-family: 'Bricolage Grotesk', system-ui, sans-serif;
+  font-variation-settings: "opsz" 96;
+  font-weight: 500;
+  font-size: clamp(38px, 5.2vw, 84px);
+  line-height: 0.96;
+  letter-spacing: -0.04em;
+  text-wrap: balance;
+}
+
+@media (max-width: 639px) {
+  .text-h1 {
+    font-size: clamp(34px, 8.5vw, 48px);
+    line-height: 0.98;
+  }
+}
+
+.text-h2 {
+  font-family: 'Bricolage Grotesk', system-ui, sans-serif;
+  font-variation-settings: "opsz" 96;
+  font-weight: 500;
+  font-size: clamp(40px, 6vw, 96px);
+  line-height: 0.98;
+  letter-spacing: -0.04em;
+  max-width: 13em;
+  text-wrap: balance;
+}
+
+.text-h3 {
+  font-family: 'Bricolage Grotesk', system-ui, sans-serif;
+  font-variation-settings: "opsz" 96;
+  font-weight: 500;
+  font-size: clamp(28px, 3.4vw, 48px);
+  line-height: 1.05;
+  letter-spacing: -0.03em;
+  text-wrap: balance;
+}
+
+.text-kicker {
+  font-family: 'Hanken Grotesk', system-ui, sans-serif;
+  font-weight: 500;
+  font-size: 14px;
+}
+
+.text-lead {
+  font-family: 'Hanken Grotesk', system-ui, sans-serif;
+  font-weight: 400;
+  font-size: clamp(18px, 1.5vw, 21px);
+  line-height: 1.55;
+  max-width: 32em;
+  text-wrap: pretty;
+}
+
+.text-body {
+  font-family: 'Hanken Grotesk', system-ui, sans-serif;
+  font-weight: 400;
+  font-size: 17px;
+  line-height: 1.65;
+  max-width: 36em;
+  text-wrap: pretty;
+}
+
+@media (max-width: 639px) {
+  .text-body {
+    font-size: 16px;
+  }
+}
+
+.text-large-statement {
+  font-family: 'Bricolage Grotesk', system-ui, sans-serif;
+  font-variation-settings: "opsz" 96;
+  font-weight: 500;
+  font-size: clamp(26px, 3vw, 42px);
+  line-height: 1.15;
+  letter-spacing: -0.025em;
+  text-wrap: balance;
+}
+
+.text-numeral-large {
+  font-family: 'Bricolage Grotesk', system-ui, sans-serif;
+  font-weight: 500;
+  font-size: clamp(120px, 15vw, 220px);
+  line-height: 0.8;
+  letter-spacing: -0.06em;
+  color: var(--steel);
+}
+
+.text-disclaimer {
+  font-family: 'Hanken Grotesk', system-ui, sans-serif;
+  font-weight: 400;
+  font-size: 13px;
+  line-height: 1.65;
+}
+
+/* Chamfer polygon utilities */
+.chamfer-btn {
+  clip-path: polygon(0 0, calc(100% - 10px) 0, 100% 10px, 100% 100%, 10px 100%, 0 calc(100% - 10px));
+}
+
+.chamfer-tag {
+  clip-path: polygon(0 0, calc(100% - 6px) 0, 100% 6px, 100% 100%, 6px 100%, 0 calc(100% - 6px));
+}
+
+.chamfer-panel {
+  clip-path: polygon(0 0, calc(100% - 24px) 0, 100% 24px, 100% 100%, 24px 100%, 0 calc(100% - 24px));
+}
+
+@media (max-width: 639px) {
+  .chamfer-panel {
+    clip-path: polygon(0 0, calc(100% - 16px) 0, 100% 16px, 100% 100%, 16px 100%, 0 calc(100% - 16px));
+  }
+}
+
+.chamfer-nav-btn {
+  clip-path: polygon(0 0, calc(100% - 8px) 0, 100% 8px, 100% 100%, 8px 100%, 0 calc(100% - 8px));
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: var(--bg);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--surface-2);
+  border-radius: 0px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--mint);
+}
+
+/* Reduced Motion Override */
+@media (prefers-reduced-motion: reduce) {
+  *, ::before, ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
