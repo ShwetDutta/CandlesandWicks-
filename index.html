@@ -10,41 +10,81 @@
     <link rel="apple-touch-icon" href="/logo.png" />
 
     <!-- SEO Meta Tags -->
-    <title>Candles &amp; Wicks | Understand why the market moves</title>
-    <meta name="description" content="Trading education, research and systematic thinking for traders who want to understand why markets move, not just what the chart shows." />
-    <link rel="canonical" href="[CANONICAL URL]" />
-    <meta name="robots" content="index, follow" />
+    <title>Candles &amp; Wicks | Trading Education &amp; Market Research</title>
+    <meta name="description" content="Explore market movements through trading education, market research and systematic thinking. Join the Candles &amp; Wicks community for retail traders." />
+    <link rel="canonical" href="https://candlesandwicks.si/" />
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
 
     <!-- Open Graph / Social Media -->
+    <meta property="og:locale" content="en_US" />
     <meta property="og:type" content="website" />
-    <meta property="og:title" content="Candles &amp; Wicks | Understand why the market moves" />
-    <meta property="og:description" content="Trading education, research and systematic thinking for traders who want to understand why markets move, not just what the chart shows." />
+    <meta property="og:title" content="Candles &amp; Wicks | Trading Education &amp; Market Research" />
+    <meta property="og:description" content="Explore market movements through trading education, market research and systematic thinking. Join the Candles &amp; Wicks community for retail traders." />
+    <meta property="og:url" content="https://candlesandwicks.si/" />
     <meta property="og:site_name" content="Candles &amp; Wicks" />
-    <meta property="og:image" content="/og-image.png" />
-    <meta property="og:url" content="[CANONICAL URL]" />
+    <meta property="og:image" content="https://candlesandwicks.si/og-image.png" />
+    <meta property="og:image:secure_url" content="https://candlesandwicks.si/og-image.png" />
+    <meta property="og:image:type" content="image/png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="Candles &amp; Wicks — Trading Education &amp; Market Research" />
 
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="Candles &amp; Wicks | Understand why the market moves" />
-    <meta name="twitter:description" content="Trading education, research and systematic thinking for traders who want to understand why markets move, not just what the chart shows." />
-    <meta name="twitter:image" content="/og-image.png" />
+    <meta name="twitter:title" content="Candles &amp; Wicks | Trading Education &amp; Market Research" />
+    <meta name="twitter:description" content="Explore market movements through trading education, market research and systematic thinking. Join the Candles &amp; Wicks community for retail traders." />
+    <meta name="twitter:image" content="https://candlesandwicks.si/og-image.png" />
+    <meta name="twitter:image:alt" content="Candles &amp; Wicks — Trading Education &amp; Market Research" />
 
     <!-- Google Fonts: Bricolage Grotesk (Display), Hanken Grotesk (Body/UI), IBM Plex Mono (Data labels) -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesk:opsz,wght@12..96,500;12..96,600&family=Hanken+Grotesk:wght@400;500;600&family=IBM+Plex+Mono:wght@400&display=swap" rel="stylesheet">
 
-    <!-- JSON-LD Organization Schema -->
+    <!-- JSON-LD Structured Data: WebSite & Organization -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
-      "@type": "Organization",
-      "name": "Candles & Wicks",
-      "description": "Trading education, research and systematic thinking for traders who want to understand why markets move, not just what the chart shows."
+      "@graph": [
+        {
+          "@type": "WebSite",
+          "@id": "https://candlesandwicks.si/#website",
+          "url": "https://candlesandwicks.si/",
+          "name": "Candles & Wicks",
+          "description": "Trading education, market research and systematic thinking for traders.",
+          "publisher": {
+            "@id": "https://candlesandwicks.si/#organization"
+          },
+          "inLanguage": "en-US"
+        },
+        {
+          "@type": "Organization",
+          "@id": "https://candlesandwicks.si/#organization",
+          "name": "Candles & Wicks",
+          "url": "https://candlesandwicks.si/",
+          "logo": {
+            "@type": "ImageObject",
+            "@id": "https://candlesandwicks.si/#logo",
+            "url": "https://candlesandwicks.si/logo.png",
+            "contentUrl": "https://candlesandwicks.si/logo.png",
+            "caption": "Candles & Wicks Logo",
+            "width": "1024",
+            "height": "1024"
+          },
+          "image": "https://candlesandwicks.si/og-image.png",
+          "description": "Trading education, research and systematic thinking for traders who want to understand why markets move, not just what the chart shows."
+        }
+      ]
     }
     </script>
   </head>
   <body class="bg-[#0A0D11] text-[#E8ECF1] antialiased">
+    <noscript>
+      <div style="padding: 2rem; text-align: center; color: #E8ECF1; font-family: sans-serif;">
+        <p><strong>Candles &amp; Wicks</strong> — Trading education, market research, and systematic thinking for traders.</p>
+        <p>Please enable JavaScript to experience the full interactive website.</p>
+      </div>
+    </noscript>
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
   </body>

@@ -26,7 +26,7 @@ export interface SiteConfig {
 export const siteConfig: SiteConfig = {
   communityUrl: '[COMMUNITY_URL]',
   communityPlatform: '[Platform: Discord / Telegram]',
-  canonicalUrl: '[CANONICAL URL]',
+  canonicalUrl: 'https://candlesandwicks.si/',
   legalReviewTag: '[LEGAL REVIEW]',
 
   video: {

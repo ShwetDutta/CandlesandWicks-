@@ -13,7 +13,7 @@ This document lists every active placeholder and draft copy requiring confirmati
 | `[Founder name]` | Real names of the two founders. | `src/config/site.ts` (`founderNames`) |
 | `[VIDEO]` / `src` | URL to the hosted founder introduction video (e.g., `/video.mp4` or CDN link). | `src/config/site.ts` (`video.src` or `video.embedUrl`) |
 | `[MM:SS]` | Real video duration (e.g. "04:15"). | `src/config/site.ts` (`video.duration`) |
-| `[CANONICAL URL]` | Production canonical domain URL (e.g., `https://candlesandwicks.com`). | `src/config/site.ts` (`canonicalUrl`) and `index.html` |
+| `[CANONICAL URL]` | Production canonical domain URL. **Configured:** `https://candlesandwicks.si/` | `src/config/site.ts` (`canonicalUrl`) and `index.html` |
 | `[LEGAL REVIEW]` | Legal review tag/note in the footer disclaimer. | `src/config/site.ts` (`legalReviewTag`) |
 | `[INSTAGRAM URL]` | Official Instagram profile link. | `src/config/site.ts` (`socials[0].url`) |
 | `[YOUTUBE URL]` | Official YouTube channel link. | `src/config/site.ts` (`socials[1].url`) |

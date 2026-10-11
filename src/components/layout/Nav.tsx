@@ -27,7 +27,8 @@ export const Nav: React.FC = () => {
         <div className="mx-auto w-full max-w-[1360px] h-full px-[clamp(20px,4.5vw,72px)] flex items-center justify-between">
           {/* Brand Left */}
           <a
-            href="#"
+            href="/"
+            aria-label="Candles &amp; Wicks - Homepage"
             className="flex items-center gap-3 focus-visible:outline focus-visible:outline-2 focus-visible:outline-[var(--text)] focus-visible:outline-offset-2"
           >
             <Badge size={40} className="max-sm:w-[36px] max-sm:h-[36px]" alt="" />
