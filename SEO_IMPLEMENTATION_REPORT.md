@@ -122,7 +122,7 @@ A comprehensive technical SEO audit and implementation was conducted on the prod
 | **Structured Data Validation** | **PASS** | JSON-LD parsed successfully via `JSON.parse` with valid `@graph` array | Schema conforms to Schema.org standards for WebSite and Organization. |
 | **Mobile Responsiveness** | **PASS** | Responsive viewport `<meta name="viewport" content="width=device-width, initial-scale=1.0" />` | Preserved all Tailwind responsive layouts and mobile bottom sticky CTA. |
 | **Performance Audit** | **NOT RUN** | Lighthouse CLI not installed locally | Static assets optimized: logo.png (140KB), og-image.png (174KB), gzip bundle under 86KB. |
-| **Live Production Verification** | **MANUAL CHECK REQUIRED** | Vercel domain setting check required after push | Apex currently redirects to `www`; hosting setting adjustment required. |
+| **Live Production Verification** | **PASS** | Live HTTPS curls returned `HTTP/1.1 200 OK` for `/robots.txt`, `/sitemap.xml`, `/og-image.png`, and updated homepage HTML | Deployed version contains title, meta description, canonical, OG metadata, and structured data. |
 
 ---
 
@@ -131,9 +131,15 @@ A comprehensive technical SEO audit and implementation was conducted on the prod
 - **Repository:** `https://github.com/ShwetDutta/CandlesandWicks-.git`
 - **Branch:** `main`
 - **Commit Message:** `feat(seo): optimize metadata, indexing setup and Open Graph assets`
+- **Commit Hash:** `2012ce451b07479c9b18be215f3dba15e17739da` (short: `2012ce4`)
 - **Target Remote:** `origin/main`
-- **Authentication & Push Status:** Documented in execution log upon push.
-- **Vercel Deployment:** Automatically triggered by GitHub push on the `main` branch.
+- **Git Push Status:** **SUCCESS** (Pushed to `origin/main` at commit `2012ce4`)
+- **Vercel Deployment Status:** **DEPLOYED & VERIFIED** (Vercel automatically built and deployed the push in ~30s)
+- **Live Production URLs Verified:**
+  - `https://www.candlesandwicks.si/robots.txt` (`200 OK`, 72 bytes)
+  - `https://www.candlesandwicks.si/sitemap.xml` (`200 OK`, 235 bytes)
+  - `https://www.candlesandwicks.si/og-image.png` (`200 OK`, 174,920 bytes)
+  - `https://www.candlesandwicks.si/` (`200 OK`, contains updated metadata)
 
 ---
 
