@@ -220,3 +220,55 @@ Because Google Search Console requires authentication through the site owner's G
 - [x] Live production domain checked.
 - [x] Google Search Console setup and manual steps documented.
 - [x] Final report saved (`SEO_IMPLEMENTATION_REPORT.md`).
+
+---
+
+## 11. Canonical Domain Alignment — Resolution
+
+### Original Redirect Mismatch
+- **Declared Canonical URL:** `https://candlesandwicks.si/`
+- **Observed Live Response:** `https://candlesandwicks.si/` returned `HTTP/1.1 308 Permanent Redirect` with `Location: https://www.candlesandwicks.si/`.
+- **Conflict:** Canonical redirect conflict where the declared canonical URL redirects to a different URL (`www`), risking search engine confusion and indexing fragmentation.
+
+### Confirmed Root Cause
+1. **Application Code Audit:**
+   - No `vercel.json` exists in the repository.
+   - No redirect rules exist in `vite.config.ts`, `index.html`, or React routing.
+   - All canonical tags, Open Graph URLs, XML sitemaps, robots.txt, and JSON-LD structured data in the codebase strictly declare `https://candlesandwicks.si/`.
+2. **DNS & Edge Infrastructure Audit:**
+   - Hostinger DNS queries via `Resolve-DnsName` confirmed:
+     - `candlesandwicks.si` (Apex A record) → `216.198.79.1` (Vercel Anycast IP)
+     - `www.candlesandwicks.si` (CNAME record) → `da1efac7ce228952.vercel-dns-017.com` (Vercel CNAME)
+   - Hostinger DNS is 100% correctly configured and routing both domains directly to Vercel.
+3. **Root Cause:**
+   - In the **Vercel Project Dashboard (Settings → Domains)**, `www.candlesandwicks.si` is currently designated as the **Production (Primary) Domain**, and `candlesandwicks.si` is configured to **Redirect to `www.candlesandwicks.si`**.
+   - This redirect is executed at Vercel's edge router level before code execution.
+
+### Exact Configuration Action Required in Vercel
+Because domain routing is managed in Vercel's administrative dashboard, complete the following steps in the Vercel dashboard:
+1. Navigate to **Vercel Dashboard → Candles & Wicks Project → Settings → Domains**.
+2. Locate `candlesandwicks.si` (the apex domain). Click **Edit** (or three dots `...`).
+3. Set `candlesandwicks.si` as the **Primary / Production Domain** (ensure "Redirect" is unchecked).
+4. Locate `www.candlesandwicks.si`. Click **Edit**.
+5. Enable **Redirect to** and select `candlesandwicks.si` (Permanent redirect / 308).
+6. Click **Save**.
+
+### Current vs. Expected URL Redirect Behavior
+
+| URL | Current Live Response | Expected Behavior After Vercel Toggle |
+| :--- | :--- | :--- |
+| `https://candlesandwicks.si/` | `308 Permanent Redirect` → `https://www.candlesandwicks.si/` | `200 OK` (Serves homepage directly) |
+| `https://www.candlesandwicks.si/` | `200 OK` (Serves homepage directly) | `308 Permanent Redirect` → `https://candlesandwicks.si/` |
+| `http://candlesandwicks.si/` | `308` → `https://candlesandwicks.si/` → `308` → `https://www.candlesandwicks.si/` | `308 Permanent Redirect` → `https://candlesandwicks.si/` |
+| `http://www.candlesandwicks.si/` | `308` → `https://www.candlesandwicks.si/` | `308 Permanent Redirect` → `https://candlesandwicks.si/` |
+
+### Final Canonical State in Codebase
+- **Canonical tag:** `<link rel="canonical" href="https://candlesandwicks.si/" />`
+- **Sitemap:** `<loc>https://candlesandwicks.si/</loc>`
+- **Robots.txt:** `Sitemap: https://candlesandwicks.si/sitemap.xml`
+- **Open Graph:** `<meta property="og:url" content="https://candlesandwicks.si/" />`
+- **Structured Data:** `@id: "https://candlesandwicks.si/#website"` & `"https://candlesandwicks.si/#organization"`
+- **Application Code Status:** 100% verified and aligned with `https://candlesandwicks.si/`. No code changes required.
+
+### Verification Date
+- **Date:** October 11, 2026
