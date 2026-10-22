@@ -3,6 +3,12 @@
  * All content constants and placeholder declarations live here.
  */
 
+export interface SocialLink {
+  label: string;
+  url: string;
+  icon?: 'instagram' | 'linkedin' | 'x' | string;
+}
+
 export interface SiteConfig {
   communityUrl: string;
   communityPlatform: string;
@@ -17,10 +23,7 @@ export interface SiteConfig {
     transcriptUrl: string;
   };
   founderNames: [string, string];
-  socials: Array<{
-    label: string;
-    url: string;
-  }>;
+  socials: SocialLink[];
 }
 
 export const siteConfig: SiteConfig = {
@@ -43,15 +46,18 @@ export const siteConfig: SiteConfig = {
   socials: [
     {
       label: 'Instagram',
-      url: '[INSTAGRAM URL]',
+      url: 'https://www.instagram.com/_candlesandwicks_?utm_source=ig_web_button_share_sheet&psln=ZDNlZDc0MzIxNw==',
+      icon: 'instagram',
     },
     {
-      label: 'YouTube',
-      url: '[YOUTUBE URL]',
+      label: 'LinkedIn',
+      url: 'https://www.linkedin.com/company/candles-and-wicks/?viewAsMember=true',
+      icon: 'linkedin',
     },
     {
-      label: '[Other]',
-      url: '[OTHER URL]',
+      label: 'X',
+      url: 'https://x.com/_candlesandwick',
+      icon: 'x',
     },
   ],
 };

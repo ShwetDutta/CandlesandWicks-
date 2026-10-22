@@ -15,9 +15,9 @@ This document lists every active placeholder and draft copy requiring confirmati
 | `[MM:SS]` | Real video duration (e.g. "04:15"). | `src/config/site.ts` (`video.duration`) |
 | `[CANONICAL URL]` | Production canonical domain URL. **Configured:** `https://candlesandwicks.si/` | `src/config/site.ts` (`canonicalUrl`) and `index.html` |
 | `[LEGAL REVIEW]` | Legal review tag/note in the footer disclaimer. | `src/config/site.ts` (`legalReviewTag`) |
-| `[INSTAGRAM URL]` | Official Instagram profile link. | `src/config/site.ts` (`socials[0].url`) |
-| `[YOUTUBE URL]` | Official YouTube channel link. | `src/config/site.ts` (`socials[1].url`) |
-| `[OTHER URL]` | Other social network profile link (e.g. X/Twitter, TikTok). | `src/config/site.ts` (`socials[2].url`) |
+| `[INSTAGRAM URL]` | Official Instagram profile link. **Configured:** `https://www.instagram.com/_candlesandwicks_...` | `src/config/site.ts` (`socials[0]`) |
+| `[LINKEDIN URL]` | Official LinkedIn company page link. **Configured:** `https://www.linkedin.com/company/candles-and-wicks/...` | `src/config/site.ts` (`socials[1]`) |
+| `[X URL]` | Official X profile link. **Configured:** `https://x.com/_candlesandwick` | `src/config/site.ts` (`socials[2]`) |
 
 ---
 

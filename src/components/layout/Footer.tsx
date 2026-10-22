@@ -3,9 +3,23 @@ import { Badge } from '../brand/Badge';
 import { Wordmark } from '../brand/Wordmark';
 import { Container } from './Container';
 import { siteConfig } from '../../config/site';
+import { InstagramIcon, LinkedInIcon, XIcon } from '../ui/Icons';
+
+const CURRENT_YEAR = new Date().getFullYear();
 
 export const Footer: React.FC = () => {
-  const currentYear = new Date().getFullYear();
+  const getSocialIcon = (icon?: string) => {
+    switch (icon) {
+      case 'instagram':
+        return <InstagramIcon className="w-4 h-4 shrink-0 transition-transform duration-200 group-hover:scale-110" />;
+      case 'linkedin':
+        return <LinkedInIcon className="w-4 h-4 shrink-0 transition-transform duration-200 group-hover:scale-110" />;
+      case 'x':
+        return <XIcon className="w-3.5 h-3.5 shrink-0 transition-transform duration-200 group-hover:scale-110" />;
+      default:
+        return null;
+    }
+  };
 
   return (
     <footer className="bg-[var(--footer)] text-[var(--text)] border-t border-[var(--line)] py-16">
@@ -19,16 +33,17 @@ export const Footer: React.FC = () => {
             </div>
 
             {/* Socials */}
-            <nav className="flex items-center gap-6" aria-label="Social Media Links">
+            <nav className="flex items-center gap-6 flex-wrap" aria-label="Social Media Links">
               {siteConfig.socials.map((item, idx) => (
                 <a
                   key={idx}
                   href={item.url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="font-hanken font-medium text-[15px] text-[var(--muted)] hover:text-[var(--text)] transition-colors duration-200"
+                  className="group inline-flex items-center gap-2 font-hanken font-medium text-[15px] text-[var(--muted)] hover:text-[var(--text)] transition-colors duration-200"
                 >
-                  {item.label}
+                  {getSocialIcon(item.icon)}
+                  <span>{item.label}</span>
                   <span className="sr-only">(opens in a new tab)</span>
                 </a>
               ))}
@@ -45,7 +60,7 @@ export const Footer: React.FC = () => {
             </p>
 
             <p className="font-hanken text-[13px] text-[var(--muted)]/70">
-              &copy; {currentYear} Candles &amp; Wicks. All rights reserved.
+              &copy; {CURRENT_YEAR} Candles &amp; Wicks. All rights reserved.
             </p>
           </div>
         </div>
