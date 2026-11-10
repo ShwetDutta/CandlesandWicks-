@@ -13,6 +13,7 @@ export interface SiteConfig {
   communityUrl: string;
   communityPlatform: string;
   canonicalUrl: string;
+  contactEmail: string;
   legalReviewTag: string;
   video: {
     src: string;
@@ -30,6 +31,7 @@ export const siteConfig: SiteConfig = {
   communityUrl: '[COMMUNITY_URL]',
   communityPlatform: '[Platform: Discord / Telegram]',
   canonicalUrl: 'https://candlesandwicks.si/',
+  contactEmail: 'contact@candlesandwicks.si',
   legalReviewTag: '[LEGAL REVIEW]',
 
   video: {

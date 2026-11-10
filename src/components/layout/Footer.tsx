@@ -3,7 +3,7 @@ import { Badge } from '../brand/Badge';
 import { Wordmark } from '../brand/Wordmark';
 import { Container } from './Container';
 import { siteConfig } from '../../config/site';
-import { InstagramIcon, LinkedInIcon, XIcon } from '../ui/Icons';
+import { InstagramIcon, LinkedInIcon, MailIcon, XIcon } from '../ui/Icons';
 
 const CURRENT_YEAR = new Date().getFullYear();
 
@@ -32,21 +32,32 @@ export const Footer: React.FC = () => {
               <Wordmark size="large" />
             </div>
 
-            {/* Socials */}
-            <nav className="flex items-center gap-6 flex-wrap" aria-label="Social Media Links">
+            {/* Socials & Contact */}
+            <nav className="flex items-center md:justify-end gap-x-6 gap-y-3 flex-wrap" aria-label="Social and Contact Links">
               {siteConfig.socials.map((item, idx) => (
                 <a
                   key={idx}
                   href={item.url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="group inline-flex items-center gap-2 font-hanken font-medium text-[15px] text-[var(--muted)] hover:text-[var(--text)] transition-colors duration-200"
+                  className="group inline-flex items-center gap-2 font-hanken font-medium text-[15px] text-[var(--muted)] hover:text-[var(--text)] transition-colors duration-200 focus-visible:outline focus-visible:outline-2 focus-visible:outline-[var(--text)] focus-visible:outline-offset-2"
                 >
                   {getSocialIcon(item.icon)}
                   <span>{item.label}</span>
                   <span className="sr-only">(opens in a new tab)</span>
                 </a>
               ))}
+
+              {siteConfig.contactEmail && (
+                <a
+                  href={`mailto:${siteConfig.contactEmail}`}
+                  aria-label={`Email ${siteConfig.contactEmail}`}
+                  className="group inline-flex items-center gap-2 font-hanken font-medium text-[15px] text-[var(--muted)] hover:text-[var(--text)] transition-colors duration-200 focus-visible:outline focus-visible:outline-2 focus-visible:outline-[var(--text)] focus-visible:outline-offset-2"
+                >
+                  <MailIcon className="w-4 h-4 shrink-0 transition-transform duration-200 group-hover:scale-110" />
+                  <span>{siteConfig.contactEmail}</span>
+                </a>
+              )}
             </nav>
           </div>
 

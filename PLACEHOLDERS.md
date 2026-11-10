@@ -18,6 +18,7 @@ This document lists every active placeholder and draft copy requiring confirmati
 | `[INSTAGRAM URL]` | Official Instagram profile link. **Configured:** `https://www.instagram.com/_candlesandwicks_...` | `src/config/site.ts` (`socials[0]`) |
 | `[LINKEDIN URL]` | Official LinkedIn company page link. **Configured:** `https://www.linkedin.com/company/candles-and-wicks/...` | `src/config/site.ts` (`socials[1]`) |
 | `[X URL]` | Official X profile link. **Configured:** `https://x.com/_candlesandwick` | `src/config/site.ts` (`socials[2]`) |
+| `[CONTACT EMAIL]` | Official contact email address. **Configured:** `contact@candlesandwicks.si` | `src/config/site.ts` (`contactEmail`) and `index.html` |
 
 ---
 
